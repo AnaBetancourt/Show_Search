@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :reviews, only: [:new, :create, :edit, :update, :destroy]
   resources :tvshows
   resources :users
+
+  root 'application#home'
 end
