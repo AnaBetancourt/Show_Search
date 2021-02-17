@@ -6,6 +6,7 @@ class CreateTvShows < ActiveRecord::Migration[6.1]
       t.boolean :currently_airing
       t.datetime :end_date
       t.string :network
+      t.integer :user_id
 
       t.timestamps
     end
