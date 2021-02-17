@@ -1,24 +1,18 @@
-# README
+# Show Search
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Show Search is a web application that allows users to search, add, and edit data regarding TV Shows.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
 
-* System dependencies
+## Usage
 
-* Configuration
 
-* Database creation
 
-* Database initialization
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-* How to run the test suite
+Please make sure to update tests as appropriate.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
