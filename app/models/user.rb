@@ -1,7 +1,10 @@
 class User < ApplicationRecord
-  has_secure_password
   has_many :actors
   has_many :tvshows
   has_many :reviews
+  has_secure_password
+
+  validates :name :email :password_digest, presence: :true
+  validates :email, uniqueness: :true
 
 end
