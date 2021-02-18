@@ -6,5 +6,8 @@ Rails.application.routes.draw do
   resources :tv_shows
   resources :users, only: [:new, :create, :show, :edit, :update, :destroy]
 
+  get "/login", to: "sessions#new"
+  post "/login", to: "sessions#create"
+
   root 'application#home'
 end
