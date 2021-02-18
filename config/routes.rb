@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :actors 
   resources :characters, only: [:new, :create, :edit, :update, :destroy]
   resources :reviews, only: [:new, :create, :edit, :update, :destroy]
-  resources :tvshows
+  resources :tv_shows
   resources :users, only: [:new, :create, :show, :edit, :update, :destroy]
 
   root 'application#home'
