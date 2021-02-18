@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_02_17_022350) do
     t.integer "age"
     t.text "description"
     t.integer "actor_id"
-    t.integer "tvshow_id"
+    t.integer "tv_show_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2021_02_17_022350) do
   create_table "reviews", force: :cascade do |t|
     t.text "body"
     t.integer "user_id"
-    t.integer "tvshow_id"
+    t.integer "tv_show_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

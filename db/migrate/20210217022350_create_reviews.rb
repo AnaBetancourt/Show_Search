@@ -3,7 +3,7 @@ class CreateReviews < ActiveRecord::Migration[6.1]
     create_table :reviews do |t|
       t.text :body
       t.integer :user_id
-      t.integer :tvshow_id
+      t.integer :tv_show_id
 
       t.timestamps
     end

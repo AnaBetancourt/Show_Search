@@ -5,7 +5,7 @@ class CreateCharacters < ActiveRecord::Migration[6.1]
       t.integer :age
       t.text :description
       t.integer :actor_id
-      t.integer :tvshow_id
+      t.integer :tv_show_id
 
       t.timestamps
     end
