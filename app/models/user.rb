@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :actors
-  has_many :tvshows
+  has_many :tv_shows
   has_many :reviews
   has_secure_password
 
