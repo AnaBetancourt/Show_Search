@@ -2,6 +2,7 @@ class CreateTvShows < ActiveRecord::Migration[6.1]
   def change
     create_table :tv_shows do |t|
       t.string :name
+      t.string :synopsis
       t.datetime :start_date
       t.boolean :currently_airing
       t.datetime :end_date

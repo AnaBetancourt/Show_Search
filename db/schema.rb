@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2021_02_17_022350) do
 
   create_table "tv_shows", force: :cascade do |t|
     t.string "name"
+    t.string "synopsis"
     t.datetime "start_date"
     t.boolean "currently_airing"
     t.datetime "end_date"
