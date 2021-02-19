@@ -7,13 +7,52 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-#USERS
+# #USERS
+# User.create(name: "", email: "", password: "")
+# User.create(name: "", email: "", password: "")
+# User.create(name: "", email: "", password: "")
+# User.create(name: "", email: "", password: "")
+# User.create(name: "", email: "", password: "")
 
+# #ACTORS
+# Actor.create(name: "", age: "")
+# Actor.create(name: "", age: "")
+# Actor.create(name: "", age: "")
+# Actor.create(name: "", age: "")
+# Actor.create(name: "", age: "")
+# Actor.create(name: "", age: "")
+# Actor.create(name: "", age: "")
+# Actor.create(name: "", age: "")
+# Actor.create(name: "", age: "")
+# Actor.create(name: "", age: "")
+# Actor.create(name: "", age: "")
+# Actor.create(name: "", age: "")
+# Actor.create(name: "", age: "")
+# Actor.create(name: "", age: "")
+# Actor.create(name: "", age: "")
 
-#ACTORS
+# #TV SHOWS
+# TvShow.create(name: "", start_date: "", currently_airing: "", end_date: "", network: "")
+# TvShow.create(name: "", start_date: "", currently_airing: "", end_date: "", network: "")
+# TvShow.create(name: "", start_date: "", currently_airing: "", end_date: "", network: "")
+# TvShow.create(name: "", start_date: "", currently_airing: "", end_date: "", network: "")
+# TvShow.create(name: "", start_date: "", currently_airing: "", end_date: "", network: "")
 
-#TV SHOWS
+# #CHARACTERS
+# Character.create(name: "", age: "", description: "")
+# Character.create(name: "", age: "", description: "")
+# Character.create(name: "", age: "", description: "")
+# Character.create(name: "", age: "", description: "")
+# Character.create(name: "", age: "", description: "")
+# Character.create(name: "", age: "", description: "")
+# Character.create(name: "", age: "", description: "")
+# Character.create(name: "", age: "", description: "")
+# Character.create(name: "", age: "", description: "")
+# Character.create(name: "", age: "", description: "")
+# Character.create(name: "", age: "", description: "")
+# Character.create(name: "", age: "", description: "")
+# Character.create(name: "", age: "", description: "")
+# Character.create(name: "", age: "", description: "")
+# Character.create(name: "", age: "", description: "")
 
-#CHARACTERS
-
-#REVIEWS
+# #REVIEWS
