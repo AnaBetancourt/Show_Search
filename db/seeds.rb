@@ -32,11 +32,11 @@
 # Actor.create(name: "", age: "")
 
 # #TV SHOWS
-# TvShow.create(name: "", start_date: "", currently_airing: "", end_date: "", network: "")
-# TvShow.create(name: "", start_date: "", currently_airing: "", end_date: "", network: "")
-# TvShow.create(name: "", start_date: "", currently_airing: "", end_date: "", network: "")
-# TvShow.create(name: "", start_date: "", currently_airing: "", end_date: "", network: "")
-# TvShow.create(name: "", start_date: "", currently_airing: "", end_date: "", network: "")
+# TvShow.create(name: "", start_date: "", currently_airing: "", end_date: "", network: "", synopsis: "")
+# TvShow.create(name: "", start_date: "", currently_airing: "", end_date: "", network: "", synopsis: "")
+# TvShow.create(name: "", start_date: "", currently_airing: "", end_date: "", network: "", synopsis: "")
+# TvShow.create(name: "", start_date: "", currently_airing: "", end_date: "", network: "", synopsis: "")
+# TvShow.create(name: "", start_date: "", currently_airing: "", end_date: "", network: "", synopsis: "")
 
 # #CHARACTERS
 # Character.create(name: "", age: "", description: "")
