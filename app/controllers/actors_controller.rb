@@ -1,6 +1,7 @@
 class ActorsController < ApplicationController
 
     def index
+        @actors = Actor.all
     end
 
     def new
@@ -19,9 +20,11 @@ class ActorsController < ApplicationController
     end
 
     def show
+        @actor = Actor.find(params[:id])
     end
 
     def edit
+        @actor = Actor.find(params[:id])
     end
 
     def update
