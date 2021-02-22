@@ -1,7 +1,8 @@
 <h1><%= @character.name %></h1>
 <hr>
-<h2>Bio: <%= @character.bio %></h2>
-<br>
-<h2>Played by: <%= link_to @character.actor, actor_path(@character.actor) %></h2>
-<br>
-<h2>On Show: <%= link_to @character.tv_show, tv_show_path(@character.tv_show) %></h2>
+<h2>Bio:</h2>
+<h3><%= @character.bio %></h3>
+<h2>Played by:</h2>
+<h3><%= link_to @character.actor.name, actor_path(@character.actor) %></h3>
+<h2>On Show:</h2>
+<h3><%= link_to @character.tv_show.name, tv_show_path(@character.tv_show) %></h3>
