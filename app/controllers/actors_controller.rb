@@ -28,6 +28,7 @@ class ActorsController < ApplicationController
     end
 
     def update
+        binding.pry
     end
 
     def destroy

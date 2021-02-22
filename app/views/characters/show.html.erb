@@ -1,1 +1,7 @@
-<h1>Character Show Page</h1>
+<h1><%= @character.name %></h1>
+<hr>
+<h2>Bio: <%= @character.bio %></h2>
+<br>
+<h2>Played by: <%= link_to @character.actor, actor_path(@character.actor) %></h2>
+<br>
+<h2>On Show: <%= link_to @character.tv_show, tv_show_path(@character.tv_show) %></h2>
