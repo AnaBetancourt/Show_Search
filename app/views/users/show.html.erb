@@ -1,1 +1,11 @@
-<h1>User Homepage</h1>
+<h1><%= @user.username.capitalize %>'s Homepage</h1>
+<hr>
+<h2>Shows Created (<%= @user.tv_shows.length %>)</h2>
+<% @user.tv_shows.each do |show| %>
+    <p><%= show.name %></p>
+<% end %>
+<br>
+<h2>Actors Created (<%= @user.actors.length %>)</h2>
+<% @user.actors.each do |actor| %>
+    <p><%= actor.name %></p>
+<% end %>
