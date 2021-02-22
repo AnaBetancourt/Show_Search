@@ -1,0 +1,22 @@
+<%= render partial: "application/errors", locals: {model: @show} %>
+<%= form_for(@show) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+
+    <%= f.label :start_date %>
+    <%= f.text_field :start_date %><br>
+    
+    <%= f.label :end_date %>
+    <%= f.text_field :end_date %><br>
+
+    <%= f.label :currently_airing %>
+    <%= f.text_field :currently_airing %><br>
+
+    <%= f.label :network %>
+    <%= f.text_field :network %><br>
+
+    <%= f.label :synopsis %>
+    <%= f.text_area :synopsis %><br>
+
+    <%= f.submit %>
+<% end %>
