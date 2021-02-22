@@ -3,6 +3,11 @@
 <h2>Age: <%= @actor.age %></h2>
 <br>
 <h2>Characters:</h2>
-<%= @actor.characters.each do |character| %>
+<% @actor.characters.each do |character| %>
     <%= link_to character.name, character_path(character) %>
+<% end %>
+<br>
+<h2>Shows:</h2>
+<% @actor.tv_shows.each do |show| %>
+    <%= link_to show.name, tv_show_path(show) %>
 <% end %>

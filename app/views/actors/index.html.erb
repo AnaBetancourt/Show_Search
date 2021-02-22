@@ -1,5 +1,5 @@
 <h1>Actors</h1>
 
-<% @actors.each do |actor| %>
-    <%= link_to actor.name, actor-path(actor) %>
-<% end %>
+<ul><% @actors.each do |actor| %>
+    <li><%= link_to actor.name, actor_path(actor) %></li>
+<% end %></ul>

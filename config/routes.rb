@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :actors 
-  resources :characters, only: [:new, :create, :edit, :update, :destroy]
+  resources :characters
   resources :reviews, only: [:new, :create, :edit, :update, :destroy]
   resources :tv_shows
   resources :users, only: [:new, :create, :show, :edit, :update, :destroy]
