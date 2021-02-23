@@ -1,13 +1,15 @@
 <h1><%= @show.name %></h1>
 <hr>
-Network: <%= @show.network %> | Currently Airing: <%= currently_airing?(@show) %>
-<h2>Synopsis:</h2>
-<h3><%= @show.synopsis %></h3>
-<h2>Start Date:</h2>
-<h3><%= @show.sdate_readable %></h3>
-<h2>End Date:</h2>
-<h3><%= @show.edate_readable %></h3>
-<h2>Characters:</h2>
-<% @show.characters.each do |character| %>
-    <h3><%= link_to character.name, character_path(character) %></h3>
+<strong><%= @show.network %> Network | <%= currently_airing?(@show) %></strong>
+<br>
+<br>
+<strong>Start Date:</strong> <%= @show.sdate_readable %><br>
+<% if !@show.currently_airing %>
+    <strong>End Date:</strong> <%= @show.edate_readable %><br>
 <% end %>
+<h3>Synopsis:</h3>
+<p><%= @show.synopsis %></p>
+<h3>Characters:</h3>
+<ul><% @show.characters.each do |character| %>
+    <li><%= link_to character.name, character_path(character) %></li>
+<% end %></ul>
