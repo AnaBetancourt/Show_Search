@@ -11,8 +11,8 @@ class ActorsController < ApplicationController
     def create
         @actor = Actor.new(actor_params)
 
-        if @actor.valid?
-            @actor.save
+        if @actor.save
+            flash[:success] = "Actor was successfully created."
             redirect_to actor_path(@actor)
         else
             render :new
@@ -28,7 +28,13 @@ class ActorsController < ApplicationController
     end
 
     def update
-        binding.pry
+        @actor = Actor.find(params[:id])
+        if @actor.update(actor_params)
+            # flash[:notice] = "Actor successfully updated"
+            redirect_to actor_path(@actor)
+        else
+            render :edit
+        end
     end
 
     def destroy

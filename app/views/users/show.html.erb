@@ -2,12 +2,12 @@
 <hr>
 <h2>Shows Created (<%= @user.tv_shows.length %>)</h2>
 <% @user.tv_shows.each do |show| %>
-    <p><%= show.name %></p>
+    <p><%= link_to show.name, tv_show_path(show) %></p>
 <% end %>
 <br>
 <h2>Actors Created (<%= @user.actors.length %>)</h2>
 <% @user.actors.each do |actor| %>
-    <p><%= actor.name %></p>
+    <p><%= link_to actor.name, actor_path(actor) %></p>
 <% end %>
 <br>
 <br>
