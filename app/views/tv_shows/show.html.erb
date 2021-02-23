@@ -13,3 +13,6 @@
 <ul><% @show.characters.each do |character| %>
     <li><%= link_to character.name, character_path(character) %></li>
 <% end %></ul>
+<br>
+<br>
+<%= button_to "Edit TV Show", edit_tv_show_path(@show), :method => :get %>

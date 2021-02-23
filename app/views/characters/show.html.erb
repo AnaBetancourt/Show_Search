@@ -5,3 +5,6 @@
 <strong>On Show:</strong> <%= link_to @character.tv_show.name, tv_show_path(@character.tv_show) %>
 <h3>Bio:</h3>
 <p><%= @character.bio %></p>
+<br>
+<br>
+<%= button_to "Edit Character", edit_character_path(@character), :method => :get %>

@@ -6,3 +6,6 @@
 <ul><% @actor.characters.each do |character| %>
     <li><%= link_to character.name, character_path(character) %> on <%= link_to character.tv_show.name, tv_show_path(character.tv_show) %></li>
 <% end %></ul>
+<br>
+<br>
+<%= button_to "Edit Actor", edit_actor_path(@actor), :method => :get %>

@@ -9,3 +9,6 @@
 <% @user.actors.each do |actor| %>
     <p><%= actor.name %></p>
 <% end %>
+<br>
+<br>
+<%= button_to "Edit Information", edit_user_path(@user), :method => :get %>
