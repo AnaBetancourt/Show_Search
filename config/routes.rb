@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :characters, except: [:index]
   resources :reviews, except: [:index, :show]
   resources :tv_shows
-  resources :users, except: [:index]
+  get "/signup", to: "users#new"
+  resources :users, except: [:index, :new]
 
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
