@@ -5,9 +5,7 @@ Rails.application.routes.draw do
   resources :characters, except: [:index]
   resources :reviews, except: [:index, :show]
   resources :tv_shows
-  get "/signup", to: "users#new"
-  post "/signup", to: "users#create"
-  resources :users, except: [:index, :new, :create]
+  resources :users, except: [:index]
 
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
