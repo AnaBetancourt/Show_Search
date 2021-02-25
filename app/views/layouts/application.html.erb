@@ -11,10 +11,17 @@
   </head>
 
   <body>
-    <%= link_to "Home", root_path %>
-  <% if !!session[:user_id] %>
+  <% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+  <% end %>
+  <% if logged_in? %>
+    <%= link_to "Home", user_path(current_user) %>
     <%= link_to "TV Shows", tv_shows_path %>
     <%= link_to "Actors", actors_path %>
+  <% else %>
+    <%= link_to "Home", root_path %>
   <% end %>
     <%= yield %>
   </body>
