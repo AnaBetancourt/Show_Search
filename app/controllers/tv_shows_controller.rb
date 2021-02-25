@@ -11,8 +11,9 @@ class TvShowsController < ApplicationController
 
     def create
         @show = TvShow.new(show_params)
-
+        
         if @show.valid?
+            @show.user = current_user
             @show.save
             redirect_to tv_show_path(@show)
         else
@@ -27,7 +28,12 @@ class TvShowsController < ApplicationController
     end
 
     def update
-        binding.pry
+        if @show.update(show_params)
+            flash[:notice] = "TV Show successfully updated."
+            redirect_to show_path(@show)
+        else
+            render :edit
+        end
     end
 
     def destroy
@@ -36,7 +42,7 @@ class TvShowsController < ApplicationController
     private
 
     def show_params
-        params.require(:tv_show).permit(:name, :start_date, :end_date, :currently_airing, :synposis, :network)
+        params.require(:tv_show).permit(:name, :start_date, :end_date, :currently_airing, :synopsis, :network)
     end
 
     def set_show
