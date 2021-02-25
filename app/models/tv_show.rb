@@ -16,4 +16,8 @@ class TvShow < ApplicationRecord
         self.end_date.strftime("%B %d, %Y")
     end
 
+    # def self.alphabetical
+    #     self.order(name: :asc)
+    # end
+
 end
