@@ -11,18 +11,23 @@
   </head>
 
   <body>
-  <% flash.each do |type, msg| %>
-  <div>
-    <%= msg %>
-  </div>
-  <% end %>
-  <% if logged_in? %>
-    <%= link_to "Home", user_path(current_user) %>
-    <%= link_to "TV Shows", tv_shows_path %>
-    <%= link_to "Actors", actors_path %>
-  <% else %>
-    <%= link_to "Home", root_path %>
-  <% end %>
+    <% flash.each do |type, msg| %>
+    <div>
+      <%= msg %>
+    </div>
+    <% end %>
+    <br>
+    <% if logged_in? %>
+      <%= link_to "Home", user_path(current_user) %>
+      <%= link_to "TV Shows", tv_shows_path %>
+      <%= link_to "Actors", actors_path %>
+    <% else %>
+      <%= link_to "Home", root_path %>
+    <% end %>
     <%= yield %>
+    <% if logged_in? %>
+      <hr>
+      <%= button_to "Log Out", logout_path, :method => :delete %>
+    <% end %>
   </body>
 </html>
