@@ -12,7 +12,7 @@ class ActorsController < ApplicationController
         @actor = Actor.new(actor_params)
 
         if @actor.save
-            flash[:success] = "Actor was successfully created."
+            # flash[:success] = "Actor was successfully created."
             redirect_to actor_path(@actor)
         else
             render :new
