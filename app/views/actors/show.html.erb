@@ -9,3 +9,5 @@
 <br>
 <br>
 <%= button_to "Edit Actor", edit_actor_path(@actor), :method => :get %>
+<br>
+<%= button_to "Delete Actor", {:controller => :actors, :action => 'destroy', :id => @actor.id }, :method => :delete %>
