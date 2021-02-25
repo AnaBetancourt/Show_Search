@@ -9,12 +9,4 @@ module TvShowsHelper
         end
     end
 
-    def sdate_readable
-        self.start_date.strftime("%B %d, %Y")
-    end
-
-    def edate_readable
-        self.end_date.strftime("%B %d, %Y")
-    end
-
 end
