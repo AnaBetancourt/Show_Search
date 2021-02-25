@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-    before_action :set_user, except: [:index, :new, :create]
+    before_action :set_user, except: [:new, :create]
+    skip_before_action :restrict_access, only: [:new, :create]
     
     def new
         @user = User.new
@@ -8,8 +9,8 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
 
-        if @user.valid?
-            @user.save
+        if @user.save
+            session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
             render :new
