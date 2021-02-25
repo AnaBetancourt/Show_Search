@@ -1,4 +1,5 @@
 class ActorsController < ApplicationController
+    before_action :set_actor, except: [:index, :new, :create]
 
     def index
         @actors = Actor.all
@@ -20,15 +21,12 @@ class ActorsController < ApplicationController
     end
 
     def show
-        @actor = Actor.find(params[:id])
     end
 
     def edit
-        @actor = Actor.find(params[:id])
     end
 
     def update
-        @actor = Actor.find(params[:id])
         if @actor.update(actor_params)
             # flash[:notice] = "Actor successfully updated"
             redirect_to actor_path(@actor)
@@ -38,7 +36,6 @@ class ActorsController < ApplicationController
     end
 
     def destroy
-        actor = Actor.find(params[:id])
         actor.delete
         redirect_to actors_path
     end
@@ -47,6 +44,10 @@ class ActorsController < ApplicationController
 
     def actor_params
         params.require(:actor).permit(:name, :age)
+    end
+
+    def set_actor
+        @actor = Actor.find(params[:id])
     end
 
 end

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    before_action :set_user, except: [:index, :new, :create]
     
     def new
         @user = User.new
@@ -16,11 +17,9 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find_by(id: params[:id])
     end
 
     def edit
-        @user = User.find_by(id: params[:id])
     end
 
     def update
@@ -34,4 +33,9 @@ class UsersController < ApplicationController
     def user_params
         params.require(:user).permit(:name, :username, :password)
     end
+
+    def set_user
+        @user = User.find(params[:id])
+    end
+
 end

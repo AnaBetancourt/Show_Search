@@ -1,4 +1,5 @@
 class CharactersController < ApplicationController
+    before_action :set_character, except: [:index, :new, :create]
 
     def index
         @characters = Character.all
@@ -20,11 +21,9 @@ class CharactersController < ApplicationController
     end
 
     def show
-        @character = Character.find(params[:id])
     end
 
     def edit
-        @character = Character.find(params[:id])
     end
 
     def update
@@ -38,6 +37,10 @@ class CharactersController < ApplicationController
 
     def character_params
         params.require(:character).permit(:name, :bio)
+    end
+
+    def set_character
+        @character = Character.find(params[:id])
     end
     
 end

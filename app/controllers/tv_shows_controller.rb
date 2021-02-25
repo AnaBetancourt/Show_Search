@@ -1,4 +1,5 @@
 class TvShowsController < ApplicationController
+    before_action :set_show, except: [:index, :new, :create]
     
     def index
         @shows = TvShow.all
@@ -20,11 +21,9 @@ class TvShowsController < ApplicationController
     end
 
     def show
-        @show = TvShow.find(params[:id])
     end
 
     def edit
-        @show = TvShow.find(params[:id])
     end
 
     def update
@@ -38,6 +37,10 @@ class TvShowsController < ApplicationController
 
     def show_params
         params.require(:tv_show).permit(:name, :start_date, :end_date, :currently_airing, :synposis, :network)
+    end
+
+    def set_show
+        @show = TvShow.find(params[:id])
     end
 
     
