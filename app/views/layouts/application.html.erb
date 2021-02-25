@@ -11,8 +11,11 @@
   </head>
 
   <body>
-    <%= link_to "All TV Shows", tv_shows_path %>
-    <%= link_to "All Actors", actors_path %>
+    <%= link_to "Home", root_path %>
+  <% if !!session[:user_id] %>
+    <%= link_to "TV Shows", tv_shows_path %>
+    <%= link_to "Actors", actors_path %>
+  <% end %>
     <%= yield %>
   </body>
 </html>
