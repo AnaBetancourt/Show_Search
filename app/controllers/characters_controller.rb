@@ -8,8 +8,8 @@ class CharactersController < ApplicationController
     def create
         @character = Character.new(character_params)
 
-        if @character.valid?
-            @character.save
+        if @character.save
+            flash[:message] = "Character was successfully created."
             redirect_to character_path(@character)
         else
             render :new
@@ -24,7 +24,7 @@ class CharactersController < ApplicationController
 
     def update
         if @character.update(character_params)
-            flash[:notice] = "Character successfully updated."
+            flash[:message] = "Character was successfully updated."
             redirect_to character_path(@character)
         else
             render :edit
