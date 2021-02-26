@@ -12,8 +12,8 @@
 
   <body>
     <% if logged_in? %>
-      <%= link_to "Home", user_path(current_user) %>
-      <%= link_to "TV Shows", tv_shows_path %>
+      <%= link_to "Home", user_path(current_user) %> |
+      <%= link_to "TV Shows", tv_shows_path %> |
       <%= link_to "Actors", actors_path %>
     <% else %>
       <%= link_to "Home", root_path %>

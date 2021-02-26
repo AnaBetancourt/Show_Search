@@ -1,4 +1,7 @@
 <h1><%= @user.username.capitalize %>'s Homepage</h1>
+<%= link_to "Create a TV Show", new_tv_show_path %> |
+<%= link_to "Create an Actor", new_actor_path %> |
+<%= link_to "Create a Character", new_character_path %>
 <hr>
 <h2>Shows Created (<%= @user.tv_shows.length %>)</h2>
 <% @user.tv_shows.each do |show| %>
