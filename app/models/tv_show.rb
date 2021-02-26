@@ -4,7 +4,7 @@ class TvShow < ApplicationRecord
     has_many :actors, through: :characters
     belongs_to :user
 
-    validates :name, :synopsis, presence: :true
+    validates :name, :synopsis, :start_date, presence: :true
     validates :name, uniqueness: :true
     
 
