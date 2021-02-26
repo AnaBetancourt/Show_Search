@@ -5,6 +5,7 @@ class TvShow < ApplicationRecord
     belongs_to :user
 
     validates :name, :synopsis, :start_date, presence: :true
+    validates :end_date, presence: true, if: !:currently_airing
     validates :name, uniqueness: :true
     
 
