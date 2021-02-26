@@ -1,9 +1,5 @@
 class CharactersController < ApplicationController
-    before_action :set_character, except: [:index, :new, :create]
-
-    def index
-        @characters = Character.all
-    end
+    before_action :set_character, except: [:new, :create]
 
     def new
         @character = Character.new
@@ -27,10 +23,17 @@ class CharactersController < ApplicationController
     end
 
     def update
-        binding.pry
+        if @character.update(character_params)
+            flash[:notice] = "Character successfully updated."
+            redirect_to character_path(@character)
+        else
+            render :edit
+        end
     end
 
     def destroy
+        @character.delete
+        redirect_to characters_path
     end
     
     private

@@ -29,7 +29,7 @@ class ActorsController < ApplicationController
 
     def update
         if @actor.update(actor_params)
-            flash[:notice] = "Actor successfully updated."
+            flash[:message] = "Actor successfully updated."
             redirect_to actor_path(@actor)
         else
             render :edit

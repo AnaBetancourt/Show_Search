@@ -1,4 +1,5 @@
 <h1><%= @character.name %></h1>
+Created by: ________ on <%= @character.date_readable(@character.created_at) %> || Last Edited by: _______ on <%= @character.date_readable(@character.updated_at) %>
 <hr>
 <strong>Played by:</strong> <%= link_to @character.actor.name, actor_path(@character.actor) %></h3>
 <br>
@@ -7,4 +8,8 @@
 <p><%= @character.bio %></p>
 <br>
 <br>
-<%= button_to "Edit Character", edit_character_path(@character), :method => :get %>
+<br>
+<%= link_to "Edit Character", edit_character_path(@character) %>
+<br>
+<br>
+<%= button_to "Delete Character", character_path(@character), :method => :delete %>
