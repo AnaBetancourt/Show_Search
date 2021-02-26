@@ -1,21 +1,22 @@
 <%= render partial: "application/errors", locals: {model: @show} %>
+<h5>Please format start and end dates as such: YYYY-MM-DD</h5>
 <%= form_for(@show) do |f| %>
-    <%= f.label :name %>
+    <%= f.label :name, "Name: " %>
     <%= f.text_field :name %><br>
-
-    <%= f.label :start_date %>
-    <%= f.text_field :start_date %><br>
     
-    <%= f.label :end_date %>
-    <%= f.text_field :end_date %><br>
+    <%= f.label :start_date, "Start Date: " %>
+    <%= f.text_field :start_date, value: @show.dateform(@show.start_date) %><br>
 
-    <%= f.label :currently_airing %>
+    <%= f.label :currently_airing, "Currently Airing? " %>
     <%= f.check_box :currently_airing %><br>
+    
+    <%= f.label :end_date, "End Date (if not currently airing): " %>
+    <%= f.text_field :end_date, value: @show.dateform(@show.end_date) %><br>
 
-    <%= f.label :network %>
+    <%= f.label :network, "Network: " %>
     <%= f.text_field :network %><br>
 
-    <%= f.label :synopsis %>
+    <%= f.label :synopsis, "Synopsis: " %><br>
     <%= f.text_area :synopsis %><br>
 
     <%= f.submit %>

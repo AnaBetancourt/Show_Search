@@ -1,18 +1,27 @@
 <h1><%= @show.name %></h1>
+Created by: <%= @show.user.username %> on <%= @show.date_readable(@show.created_at) %> || Last Edited by: _______ on <%= @show.date_readable(@show.updated_at) %>
 <hr>
-<strong><%= @show.network %> Network | <%= currently_airing?(@show) %></strong>
+<strong><%= @show.network %> Network | <%= currently_airing? %></strong>
 <br>
 <br>
-<strong>Start Date:</strong> <%= @show.sdate_readable %><br>
+<strong>Start Date:</strong> <%= @show.date_readable(@show.start_date) %><br>
 <% if !@show.currently_airing %>
-    <strong>End Date:</strong> <%= @show.edate_readable %><br>
+    <strong>End Date:</strong> <%= @show.date_readable(@show.end_date) %><br>
 <% end %>
 <h3>Synopsis:</h3>
 <p><%= @show.synopsis %></p>
 <h3>Characters:</h3>
-<ul><% @show.characters.each do |character| %>
-    <li><%= link_to character.name, character_path(character) %></li>
-<% end %></ul>
+<% if has_characters %>
+    <ul><% @show.characters.each do |character| %>
+        <li><%= link_to character.name, character_path(character) %></li>
+    <% end %></ul>
+<% else %>
+    This show does not currently have any characters added. Would you like to <%= link_to "add one", new_character_path %>?
+<% end %>
 <br>
 <br>
-<%= button_to "Edit TV Show", edit_tv_show_path(@show), :method => :get %>
+<br>
+<%= link_to "Edit Show", edit_tv_show_path(@show) %>
+<br>
+<br>
+<%= button_to "Delete Show", tv_show_path(@show), :method => :delete %>

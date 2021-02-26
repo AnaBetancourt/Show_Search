@@ -11,10 +11,10 @@ class TvShowsController < ApplicationController
 
     def create
         @show = TvShow.new(show_params)
-        
-        if @show.valid?
-            @show.user = current_user
-            @show.save
+        @show.user = current_user
+
+        if @show.save
+            flash[:message] = "TV Show successfully created."
             redirect_to tv_show_path(@show)
         else
             render :new
@@ -29,14 +29,16 @@ class TvShowsController < ApplicationController
 
     def update
         if @show.update(show_params)
-            flash[:notice] = "TV Show successfully updated."
-            redirect_to show_path(@show)
+            flash[:message] = "TV Show successfully updated."
+            redirect_to tv_show_path(@show)
         else
             render :edit
         end
     end
 
     def destroy
+        @show.delete
+        redirect_to tv_shows_path
     end
     
     private
