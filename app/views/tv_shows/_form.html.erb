@@ -5,13 +5,13 @@
     <%= f.text_field :name %><br>
     
     <%= f.label :start_date, "Start Date: " %>
-    <%= f.text_field :start_date, value: @show.dateform(@show.start_date) %><br>
+    <%= f.text_field :start_date, value: @show.dateform(@show.start_date) unless !@show.start_date %><br>
 
     <%= f.label :currently_airing, "Currently Airing? " %>
     <%= f.check_box :currently_airing %><br>
     
     <%= f.label :end_date, "End Date (if not currently airing): " %>
-    <%= f.text_field :end_date, value: @show.dateform(@show.end_date) %><br>
+    <%= f.text_field :end_date, value: @show.dateform(@show.end_date) unless !@show.start_date %><br>
 
     <%= f.label :network, "Network: " %>
     <%= f.text_field :network %><br>
