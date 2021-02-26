@@ -8,10 +8,6 @@ class TvShow < ApplicationRecord
     validates :name, uniqueness: :true
     
 
-    def date_readable(date)
-        date.strftime("%B %d, %Y")
-    end
-
     def dateform(date)
         date.strftime("%Y-%m-%d")
     end

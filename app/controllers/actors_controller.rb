@@ -11,9 +11,10 @@ class ActorsController < ApplicationController
 
     def create
         @actor = Actor.new(actor_params)
+        @actor.user = current_user
 
         if @actor.save
-            # flash[:success] = "Actor was successfully created."
+            flash[:message] = "Actor was successfully created."
             redirect_to actor_path(@actor)
         else
             render :new
@@ -28,7 +29,7 @@ class ActorsController < ApplicationController
 
     def update
         if @actor.update(actor_params)
-            flash[:notice] = "Actor successfully updated"
+            flash[:notice] = "Actor successfully updated."
             redirect_to actor_path(@actor)
         else
             render :edit
@@ -36,7 +37,7 @@ class ActorsController < ApplicationController
     end
 
     def destroy
-        actor.delete
+        @actor.delete
         redirect_to actors_path
     end
     
