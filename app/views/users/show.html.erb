@@ -11,4 +11,8 @@
 <% end %>
 <br>
 <br>
-<%= button_to "Edit Information", edit_user_path(@user), :method => :get %>
+<br>
+<%= link_to "Edit Information", edit_user_path(@user) %>
+<br>
+<br>
+<%= button_to "Delete User", user_path(@user), :method => :delete %>
