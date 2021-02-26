@@ -1,5 +1,5 @@
 <h1>TV Shows</h1>
-
+<hr>
 <ul><% @shows.each do |show| %>
     <li><%= link_to show.name, tv_show_path(show) %></li>
 <% end %></ul>
