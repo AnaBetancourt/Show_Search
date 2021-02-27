@@ -8,11 +8,11 @@
 
 
 # #USERS
-User.create(name: "Emma Otto", username: "ottoriffic", password: "password1234")
-User.create(name: "Tod Hintzen", username: "hottoddy", password: "password1234")
-User.create(name: "Robina Martin", username: "r_martin", password: "password1234")
-User.create(name: "Christian McNiel", username: "comicchristian", password: "password1234")
-User.create(name: "Jenny Patterson", username: "pattersonpenny", password: "password1234")
+User.create(name: "Emma Otto", email: "ottoriffic@email.com", password: "password1234")
+User.create(name: "Tod Hintzen", email: "hottoddy@email.com", password: "password1234")
+User.create(name: "Robina Martin", email: "r_martin@email.com", password: "password1234")
+User.create(name: "Christian McNiel", email: "comicchristian@email.com", password: "password1234")
+User.create(name: "Jenny Patterson", email: "pattersonpenny@email.com", password: "password1234")
 
 # #ACTORS
 Actor.create(name: "Jensen Ackles", age: "42", user_id: 1)

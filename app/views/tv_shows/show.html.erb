@@ -1,5 +1,5 @@
 <h1><%= @show.name %></h1>
-Created by: <%= @show.user.username %> on <%= @show.date_readable(@show.created_at) %> || Last Edited by: _______ on <%= @show.date_readable(@show.updated_at) %>
+Created by: <%= @show.user.name %> on <%= @show.date_readable(@show.created_at) %> || Last Edited by: _______ on <%= @show.date_readable(@show.updated_at) %>
 <hr>
 <strong><%= @show.network %> Network | <%= currently_airing? %></strong>
 <br>
