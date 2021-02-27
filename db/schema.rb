@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_17_022350) do
+ActiveRecord::Schema.define(version: 2021_02_27_044604) do
 
   create_table "actors", force: :cascade do |t|
     t.string "name"
     t.integer "age"
-    t.integer "user_id"
+    t.integer "creator_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "editor_id"
   end
 
   create_table "characters", force: :cascade do |t|
@@ -25,9 +26,10 @@ ActiveRecord::Schema.define(version: 2021_02_17_022350) do
     t.text "bio"
     t.integer "actor_id"
     t.integer "tv_show_id"
-    t.integer "user_id"
+    t.integer "creator_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "editor_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -45,9 +47,10 @@ ActiveRecord::Schema.define(version: 2021_02_17_022350) do
     t.boolean "currently_airing"
     t.datetime "end_date"
     t.string "network"
-    t.integer "user_id"
+    t.integer "creator_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "editor_id"
   end
 
   create_table "users", force: :cascade do |t|
