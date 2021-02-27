@@ -11,7 +11,7 @@ class TvShowsController < ApplicationController
 
     def create
         @show = TvShow.new(show_params)
-        @show.user = current_user
+        @actor.creator_id = current_user
 
         if @show.save
             flash[:message] = "TV Show was successfully created."
@@ -29,6 +29,7 @@ class TvShowsController < ApplicationController
 
     def update
         if @show.update(show_params)
+            @actor.editor_id = current_user
             flash[:message] = "TV Show was successfully updated."
             redirect_to tv_show_path(@show)
         else

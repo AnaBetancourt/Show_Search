@@ -7,6 +7,7 @@ class CharactersController < ApplicationController
 
     def create
         @character = Character.new(character_params)
+        @character.creator_id = current_user
 
         if @character.save
             flash[:message] = "Character was successfully created."
@@ -24,6 +25,7 @@ class CharactersController < ApplicationController
 
     def update
         if @character.update(character_params)
+            @character.editor_id = current_user
             flash[:message] = "Character was successfully updated."
             redirect_to character_path(@character)
         else

@@ -11,7 +11,7 @@ class ActorsController < ApplicationController
 
     def create
         @actor = Actor.new(actor_params)
-        @actor.user = current_user
+        @actor.creator_id = current_user
 
         if @actor.save
             flash[:message] = "Actor was successfully created."
@@ -29,6 +29,7 @@ class ActorsController < ApplicationController
 
     def update
         if @actor.update(actor_params)
+            @actor.editor_id = current_user
             flash[:message] = "Actor was successfully updated."
             redirect_to actor_path(@actor)
         else
