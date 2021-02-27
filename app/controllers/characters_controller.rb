@@ -3,6 +3,8 @@ class CharactersController < ApplicationController
 
     def new
         @character = Character.new
+        @character.build_actor
+        @character.build_tv_show
     end
 
     def create
@@ -22,6 +24,8 @@ class CharactersController < ApplicationController
     end
 
     def edit
+        @character.build_actor
+        @character.build_tv_show
     end
 
     def update
@@ -42,7 +46,7 @@ class CharactersController < ApplicationController
     private
 
     def character_params
-        params.require(:character).permit(:name, :bio)
+        params.require(:character).permit(:name, :bio, actor_attributes: [:current, :name, :age], tv_show_attributes: [:current, :name, :synopsis, :start_date, :currently_airing, :end_date, :network])
     end
 
     def set_character
