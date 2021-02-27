@@ -1,7 +1,10 @@
 class User < ApplicationRecord
-  has_many :actors
-  has_many :tv_shows
-  has_many :characters
+  has_many :created_actors, foreign_key: "creator_id", class_name: "Actor"
+  has_many :edited_actors, foreign_key: "editor_id", class_name: "Actor"
+  has_many :created_tv_shows, foreign_key: "creator_id", class_name: "TvShow"
+  has_many :edited_tv_shows, foreign_key: "editor_id", class_name: "TvShow"
+  has_many :created_characters, foreign_key: "creator_id", class_name: "Character"
+  has_many :edited_characters, foreign_key: "editor_id", class_name: "Character"
   has_many :reviews
   has_secure_password
 
