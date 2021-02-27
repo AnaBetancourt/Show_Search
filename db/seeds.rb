@@ -54,3 +54,13 @@ Character.create(name: "Seely Booth", bio: "A Special Agent with the FBI and co-
 Character.create(name: "Angela Montenegro", bio: "A classically trained artist who creates forensic reconstructions for the police. Also best friends with Dr. Brennan.", actor_id: 14, tv_show_id: 5, creator_id: 4, editor_id: 4)
 
 #REVIEWS
+Review.create(body: "Such an amazing show! I'll watch it over and over again.", user_id: 1, tv_show_id: 1)
+Review.create(body: "I am and forever will be a die-hard fan of this show. WATCH IT.", user_id: 2, tv_show_id: 1)
+Review.create(body: "A reboot of a classic....the bar is set high and I don't know if it will hit it.", user_id: 3, tv_show_id: 2)
+Review.create(body: "Started off slow but is gaining some traction. Good so far. We will see.", user_id: 4, tv_show_id: 2)
+Review.create(body: "LOVING IT! Can't go wrong with Star Wars!", user_id: 1, tv_show_id: 3)
+Review.create(body: "Not my style! Awful!", user_id: 2, tv_show_id: 3)
+Review.create(body: "Marvel. Need I say more?", user_id: 3, tv_show_id: 4)
+Review.create(body: "Is anyone else a little creeped out by Vision?", user_id: 4, tv_show_id: 4)
+Review.create(body: "If you like comedy, romance, and gruesome murders this is the show for you.", user_id: 1, tv_show_id: 5)
+Review.create(body: "I think I may throw up if I have to see another 'dead' body. No thank you.", user_id: 2, tv_show_id: 5)
