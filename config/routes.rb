@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :characters, except: [:index]
   resources :reviews, except: [:index, :show]
   resources :tv_shows
-  resources :users, except: [:index]
+  resources :users, except: [:index, :destroy]
 
   get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
   get '/login', to: 'sessions#new'

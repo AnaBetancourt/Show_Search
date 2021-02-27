@@ -32,11 +32,6 @@ class UsersController < ApplicationController
             render :edit
         end
     end
-
-    def destroy
-        @user.delete
-        redirect_to root_path
-    end
     
     private
 
