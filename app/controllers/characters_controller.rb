@@ -29,8 +29,8 @@ class CharactersController < ApplicationController
     end
 
     def update
+        @character.editor = current_user
         if @character.update(character_params)
-            @character.editor = current_user
             flash[:message] = "Character was successfully updated."
             redirect_to character_path(@character)
         else

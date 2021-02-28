@@ -1,5 +1,5 @@
 <h1><%= @show.name %></h1>
-Created by: <%= @show.creator.name %> on <%= @show.date_readable(@show.created_at) %> || <%= display_editor(@show) %>
+Created by: <%= @show.creator.name %> on <%= @show.date_readable(@show.created_at) %> || <%= @show.editor.name %> on <%= @show.date_readable(@show.updated_at) %>
 <hr>
 <strong><%= @show.network %> Network | <%= currently_airing? %></strong>
 <br>

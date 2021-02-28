@@ -1,5 +1,5 @@
 <h1><%= @actor.name %></h1>
-Created by: <%= @actor.creator.name %> on <%= @actor.date_readable(@actor.created_at) %> || <%= display_editor(@actor) %>
+Created by: <%= @actor.creator.name %> on <%= @actor.date_readable(@actor.created_at) %> || <%= @actor.editor.name %> on <%= @actor.date_readable(@actor.updated_at) %>
 <hr>
 <h2><%= @actor.age %> years old</h2>
 <br>

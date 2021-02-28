@@ -29,8 +29,8 @@ class TvShowsController < ApplicationController
     end
 
     def update
+        @show.editor = current_user
         if @show.update(show_params)
-            @actor.editor = current_user
             flash[:message] = "TV Show was successfully updated."
             redirect_to tv_show_path(@show)
         else
