@@ -10,8 +10,7 @@ class TvShowsController < ApplicationController
     end
 
     def create
-        @show = TvShow.new(show_params)
-        @show.creator = current_user
+        @show = current_user.created_tv_shows.build(show_params)
         @show.editor = current_user
 
         if @show.save

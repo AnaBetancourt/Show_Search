@@ -11,7 +11,7 @@ class CharactersController < ApplicationController
 
     def new
         if params[:tv_show_id] && @show =  TvShow.find_by_id(params[:tv_show_id])
-            @character = @show.characters.build
+            @character = @show.created_characters.build
             @character.build_actor
         else
             @character = Character.new
