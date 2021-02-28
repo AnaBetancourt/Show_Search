@@ -1,4 +1,8 @@
-<h1>Actors</h1>
+<% if @show %>
+    <h1><%= @show.name %>'s Actors</h1>
+<% else %>
+    <h1>Actors</h1>
+<% end %>
 <hr>
 <ul><% @actors.each do |actor| %>
     <li><%= link_to actor.name, actor_path(actor) %></li>

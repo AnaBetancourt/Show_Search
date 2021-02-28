@@ -44,5 +44,9 @@ class Character < ApplicationRecord
             end
         end
     end
+
+    def self.alphabetical
+        self.order(name: :asc)
+    end
     
 end

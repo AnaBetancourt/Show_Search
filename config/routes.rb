@@ -4,13 +4,10 @@ Rails.application.routes.draw do
   root 'application#home'
   resources :users, except: [:index, :destroy]
   # get '/homepage', to: 'users#show'
-  resources :actors do
-    resources :tv_shows, only: [:index]
-    resources :characters, only: [:index, :new, :create]
-  end
+  resources :actors
   resources :characters
   resources :tv_shows do
-    resources :actors, only: [:index, :new, :create]
+    resources :actors, only: [:index]
     resources :characters, only: [:index, :new, :create]
   end
   resources :reviews, except: [:index, :show]

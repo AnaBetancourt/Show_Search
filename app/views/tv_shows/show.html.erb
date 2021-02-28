@@ -10,14 +10,11 @@ Created by: <%= @show.creator.name %> on <%= @show.date_readable(@show.created_a
 <% end %>
 <h3>Synopsis:</h3>
 <p><%= @show.synopsis %></p>
-<h3>Characters:</h3>
-<% if has_characters %>
-    <ul><% @show.characters.each do |character| %>
-        <li><%= link_to character.name, character_path(character) %></li>
-    <% end %></ul>
-<% else %>
-    This show does not currently have any characters added. Would you like to <%= link_to "add one", new_character_path %>?
-<% end %>
+<br>
+<br>
+<h3><%= link_to "See #{@show.name}'s characters", tv_show_characters_path(@show) %></h3>
+<h3><%= link_to "Create a new character for #{@show.name}", new_tv_show_character_path(@show) %></h3>
+<h3><%= link_to "See #{@show.name}'s  actors", tv_show_actors_path(@show) %></h3>
 <br>
 <br>
 <br>

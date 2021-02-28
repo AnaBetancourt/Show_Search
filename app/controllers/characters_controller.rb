@@ -2,13 +2,22 @@ class CharactersController < ApplicationController
     before_action :set_character, except: [:index, :new, :create]
 
     def index
-        @characters = Character.all
+        if params[:tv_show_id] && @show =  TvShow.find_by_id(params[:tv_show_id])
+            @characters = @show.characters.alphabetical
+        else
+            @characters = Character.all
+        end
     end
 
     def new
-        @character = Character.new
-        @character.build_actor
-        @character.build_tv_show
+        if params[:tv_show_id] && @show =  TvShow.find_by_id(params[:tv_show_id])
+            @character = @show.characters.build
+            @character.build_actor
+        else
+            @character = Character.new
+            @character.build_actor
+            @character.build_tv_show
+        end
     end
 
     def create

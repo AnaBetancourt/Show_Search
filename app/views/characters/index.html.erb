@@ -1,4 +1,8 @@
-<h1>Characters</h1>
+<% if @show %>
+    <h1><%= @show.name %>'s Characters</h1>
+<% else %>
+    <h1>Characters</h1>
+<% end %>
 <hr>
 <ul><% @characters.each do |character| %>
     <li><%= link_to character.name, character_path(character) %></li>
