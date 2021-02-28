@@ -45,8 +45,8 @@ class UsersController < ApplicationController
     end
 
     def current_user_match
-        set_user
-        if !@user == current_user
+        if @user != current_user
+            flash[:notice] = "That's not yours!"
             redirect_to user_path(current_user)
         end
     end
