@@ -1,5 +1,5 @@
 <%= render partial: "application/errors", locals: {model: @character} %>
-<%= form_for(@character) do |f| %>
+<%= form_for([@show, @character]) do |f| %>
     <%= f.label :name, "Name: " %>
     <%= f.text_field :name %><br>
 
@@ -17,30 +17,7 @@
         <%= a.text_field :age %>        
     <% end %>
     <br>
-    <br>
-    <strong>Select or create the show that this character is in</strong><br>
-    <%= f.collection_select :tv_show_id, TvShow.all, :id, :name, prompt: true %><br><br>
-    <%= f.fields_for :tv_show do |s| %>
-        <%= s.hidden_field :creator_id, value: current_user.id %>
-        <%= s.label :name, "Show Name:" %>
-        <%= s.text_field :name %>
-        <br>
-        <%= s.label :synopsis, "Show Synopsis:" %>
-        <%= s.text_area :synopsis %>
-        <br>
-        <%= s.label :start_date, "Show Start Date:" %>
-        <%= s.text_field :start_date %>
-        <br>
-        <%= s.label :currently_airing, "Show Currently Airing:" %>
-        <%= s.check_box :currently_airing %>
-        <br>
-        <%= s.label :end_date, "Show End Date(if not currently airing):" %>
-        <%= s.text_field :end_date %>
-        <br>
-        <%= s.label :network, "Show Network:" %>
-        <%= s.text_field :network %>                
-    <% end %>
-    <br>
+    <%= display_show_fields(@show, f) %>
     <br>
     <%= f.submit %>
 <% end %>
