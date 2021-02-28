@@ -7,6 +7,10 @@ class Actor < ApplicationRecord
     validates :name, :age, presence: :true
     validates :name, uniqueness: true
 
+    def name=(name)
+        capitalize_name(name)
+    end
+
     def self.alphabetical
         self.order(name: :asc)
     end

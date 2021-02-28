@@ -3,21 +3,15 @@ class Character < ApplicationRecord
     belongs_to :tv_show
     belongs_to :creator, class_name: "User" 
     belongs_to :editor, class_name: "User"
-    # accepts_nested_attributes_for :actor
-    # accepts_nested_attributes_for :tv_show
 
     validates :name, :bio, presence: :true
     validates :name, uniqueness: true
 
     def actor_attributes=(attr)
         if !attr[:name].blank?
-            cap_name = []
-            attr[:name].split(" ").map do |i|
-                cap_name << i.capitalize
-            end
-            
-            if Actor.find_by(name: cap_name.join(" "))
-                a = Actor.find_by(name: cap_name.join(" "))
+            binding.pry
+            if Actor.find_by(name: capitalize_name(attr[:name]))
+                a = Actor.find_by(name: capitalize_name(attr[:name]))
                 self.actor = a
             else
                 a = Actor.create(attr)

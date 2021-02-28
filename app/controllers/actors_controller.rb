@@ -14,7 +14,7 @@ class ActorsController < ApplicationController
     end
 
     def create
-        @actor = current_user.actors.build(actor_params)
+        @actor = current_user.created_actors.build(actor_params)
         @actor.editor = current_user
 
         if @actor.save
