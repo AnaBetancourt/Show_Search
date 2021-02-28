@@ -1,4 +1,5 @@
 <h1>TV Shows</h1>
+<%= link_to "view show with the highest number of reviews", tv_shows_most_reviewed_path %>
 <hr>
 <ul><% @shows.each do |show| %>
     <li><%= link_to show.name, tv_show_path(show) %></li>

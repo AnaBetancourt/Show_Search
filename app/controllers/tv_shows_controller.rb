@@ -1,5 +1,5 @@
 class TvShowsController < ApplicationController
-    before_action :set_show, except: [:index, :new, :create]
+    before_action :set_show, except: [:index, :new, :create, :reviewed]
     
     def index
         @shows = TvShow.all
@@ -20,6 +20,10 @@ class TvShowsController < ApplicationController
         else
             render :new
         end
+    end
+
+    def reviewed
+        @show = TvShow.by_review.first
     end
 
     def show

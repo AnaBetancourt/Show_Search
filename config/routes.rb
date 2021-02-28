@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :show]
   resources :actors
   resources :characters
+  get '/tv_shows/most_reviewed', to: "tv_shows#reviewed"
   resources :tv_shows do
     resources :actors, only: [:index]
     resources :characters, only: [:index, :new, :create]

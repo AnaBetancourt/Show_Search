@@ -13,4 +13,8 @@ class TvShow < ApplicationRecord
         date.strftime("%Y-%m-%d")
     end
 
+    def self.by_review
+        self.order(reviews: :asc)
+    end
+
 end
