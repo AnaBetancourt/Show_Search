@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'application#home'
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
-  get '/users/:id', to: 'users#show', as: 'user'
+  resources :users, only: [:edit, :show]
   resources :actors
   resources :characters
   resources :tv_shows do
