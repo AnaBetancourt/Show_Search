@@ -29,6 +29,7 @@ class CharactersController < ApplicationController
             flash[:message] = "Character was successfully created."
             redirect_to character_path(@character)
         else
+            @show =  TvShow.find_by_id(params[:tv_show_id]) if params[:tv_show_id]
             render :new
         end
     end
