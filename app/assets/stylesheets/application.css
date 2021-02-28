@@ -18,3 +18,9 @@
     background-color: red;
     display: table;
   }
+
+  .flash_message {
+      color: rgb(11, 182, 39);
+      font-size: 15px;
+    }
+  }

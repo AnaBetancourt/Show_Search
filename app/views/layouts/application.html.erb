@@ -20,11 +20,13 @@
     <% end %>
     <br>
     <br>
-    <% flash.each do |type, msg| %>
-      <div>
-        <%= msg %>
-      </div>
+    <% if flash[:notice] %>
+      <div class="field_with_errors"><%= flash[:notice] %></div>
     <% end %>
+    <% if flash[:message] %>
+      <div class="flash_message"><%= flash[:message] %></div>
+    <% end %>
+
     <%= yield %>
     <% if logged_in? %>
       <hr>
