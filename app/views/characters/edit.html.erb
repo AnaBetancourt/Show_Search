@@ -1,12 +1,3 @@
 <h1>Edit <%= @character.name %></h1>
 <hr>
-<%= render partial: "application/errors", locals: {model: @character} %>
-<%= form_for(@character) do |f| %>
-    <%= f.label :name, "Name: " %>
-    <%= f.text_field :name %><br>
-
-    <%= f.label :bio, "Bio: " %><br>
-    <%= f.text_area :bio %><br>
-    
-    <%= f.submit %>
-<% end %>
+<%= render 'form' %>

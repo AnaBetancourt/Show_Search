@@ -10,34 +10,38 @@ class Character < ApplicationRecord
     validates :name, uniqueness: true
 
     def actor_attributes=(attr)
-        cap_name = []
-        attr[:name].split(" ").map do |i|
-            cap_name << i.capitalize
-        end
-        
-        if Actor.find_by(name: cap_name.join(" "))
-            a = Actor.find_by(name: cap_name.join(" "))
-            self.actor = a
-        else
-            a = Actor.create(attr)
-            a.editor_id = attr[:creator_id]
-            self.actor = a
+        if !attr[:name].blank?
+            cap_name = []
+            attr[:name].split(" ").map do |i|
+                cap_name << i.capitalize
+            end
+            
+            if Actor.find_by(name: cap_name.join(" "))
+                a = Actor.find_by(name: cap_name.join(" "))
+                self.actor = a
+            else
+                a = Actor.create(attr)
+                a.editor_id = attr[:creator_id]
+                self.actor = a
+            end
         end
     end
 
     def tv_show_attributes=(attr)
-        cap_name = []
-        attr[:name].split(" ").map do |i|
-            cap_name << i.capitalize
-        end
-        
-        if !!TvShow.find_by(name: cap_name.join(" "))
-            s = TvShow.find_by(name: cap_name.join(" "))
-            self.tv_show = s
-        else
-            s = TvShow.create(attr)
-            s.editor_id = attr[:creator_id]
-            s.tv_show = s
+        if !attr[:name].blank?
+            cap_name = []
+            attr[:name].split(" ").map do |i|
+                cap_name << i.capitalize
+            end
+            
+            if !!TvShow.find_by(name: cap_name.join(" "))
+                s = TvShow.find_by(name: cap_name.join(" "))
+                self.tv_show = s
+            else
+                s = TvShow.create(attr)
+                s.editor_id = attr[:creator_id]
+                self.tv_show = s
+            end
         end
     end
     
