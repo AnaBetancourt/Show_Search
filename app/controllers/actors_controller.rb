@@ -14,12 +14,11 @@ class ActorsController < ApplicationController
     end
 
     def create
-        @actor = Actor.new(actor_params)
-        @actor.creator = current_user
+        @actor = current_user.actors.build(actor_params)
         @actor.editor = current_user
 
         if @actor.save
-            flash[:message] = "Actor was successfully created."
+            creation_success("Actor")
             redirect_to actor_path(@actor)
         else
             render :new
@@ -34,8 +33,9 @@ class ActorsController < ApplicationController
 
     def update
         @actor.editor = current_user
+
         if @actor.update(actor_params)
-            flash[:message] = "Actor was successfully updated."
+            update_success("Actor")
             redirect_to actor_path(@actor)
         else
             render :edit
@@ -43,8 +43,13 @@ class ActorsController < ApplicationController
     end
 
     def destroy
-        @actor.destroy
-        redirect_to actors_path
+        if !creator_of_resource(@actor)
+            redirect_to actor_path(@actor)
+        else
+            @actor.destroy
+            deletion_success("Actor")
+            redirect_to actors_path
+        end
     end
     
     private
@@ -55,6 +60,6 @@ class ActorsController < ApplicationController
 
     def set_actor
         @actor = Actor.find(params[:id])
-    end
+    end                             
 
 end

@@ -6,11 +6,10 @@ class ReviewsController < ApplicationController
     end
 
     def create
-        @review = Review.new(review_params)
-        @review.user = current_user
+        @review = current_user.reviews.build(review_params)
 
         if @review.save
-            flash[:message] = "Review was successfully created."
+            creation_success("Review")
             redirect_to tv_show_path(@review.tv_show)
         else
             @show =  TvShow.find_by_id(params[:tv_show_id])
@@ -19,11 +18,16 @@ class ReviewsController < ApplicationController
     end
 
     def edit
-        @review = Review.find(params[:id])
+        if !creator_of_resource(@review)
+            redirect_to tv_show_path(@review.tv_show)
+        else
+            @review = Review.find(params[:id])
+        end
     end
 
     def update
         @review = Review.find(params[:id])
+
         if @review.update(review_params)
             flash[:message] = "Review was successfully edited."
             redirect_to review_path(@review)
@@ -33,9 +37,13 @@ class ReviewsController < ApplicationController
     end
 
     def destroy
-        @review = Review.find(params[:id])
-        @review.destroy
-        redirect_to tv_show_path(@review.tv_show)
+        if !creator_of_resource(@review)
+            redirect_to tv_show_path(@review.tv_show)
+        else
+            @review = Review.find(params[:id])
+            @review.destroy
+            redirect_to tv_show_path(@review.tv_show)
+        end
     end
 
     private

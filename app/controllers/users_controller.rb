@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     before_action :set_user, except: [:new, :create]
+    before_action :current_user_match, except: [:new, :create]
     skip_before_action :restrict_access, only: [:new, :create]
     
     def new
@@ -11,7 +12,7 @@ class UsersController < ApplicationController
 
         if @user.save
             session[:user_id] = @user.id
-            flash[:message] = "User was successfully created."
+            creation_success(@user)
             redirect_to user_path(@user)
         else
             render :new
@@ -41,6 +42,13 @@ class UsersController < ApplicationController
 
     def set_user
         @user = User.find(params[:id])
+    end
+
+    def current_user_match
+        set_user
+        if !@user == current_user
+            redirect_to user_path(current_user)
+        end
     end
 
 end

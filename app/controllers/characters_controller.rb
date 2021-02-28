@@ -21,12 +21,11 @@ class CharactersController < ApplicationController
     end
 
     def create
-        @character = Character.new(character_params)
-        @character.creator = current_user
+        @character = current_user.characters.build(character_params)
         @character.editor = current_user
 
         if @character.save
-            flash[:message] = "Character was successfully created."
+            creation_success("Character")
             redirect_to character_path(@character)
         else
             @show =  TvShow.find_by_id(params[:tv_show_id]) if params[:tv_show_id]
@@ -38,14 +37,15 @@ class CharactersController < ApplicationController
     end
 
     def edit
-        @character.build_actor
-        @character.build_tv_show
+            @character.build_actor
+            @character.build_tv_show
     end
 
     def update
         @character.editor = current_user
+
         if @character.update(character_params)
-            flash[:message] = "Character was successfully updated."
+            update_success("Character")
             redirect_to character_path(@character)
         else
             render :edit
@@ -53,8 +53,13 @@ class CharactersController < ApplicationController
     end
 
     def destroy
-        @character.destroy
-        redirect_to user_path(current_user)
+        if !creator_of_resource(@character)
+            redirect_to character_path(@character)
+        else
+            @character.destroy
+            deletion_success("Character")
+            redirect_to user_path(current_user)
+        end
     end
     
     private
