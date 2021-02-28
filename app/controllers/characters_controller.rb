@@ -12,9 +12,6 @@ class CharactersController < ApplicationController
         @character.creator = current_user
         @character.editor = current_user
 
-        # character_params[:actor_attributes].merge!(:user_id => current_user.id)
-        # character_params[:tv_show_attributes].merge!(:user_id => current_user.id)
-
         if @character.save
             flash[:message] = "Character was successfully created."
             redirect_to character_path(@character)
