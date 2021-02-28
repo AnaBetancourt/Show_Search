@@ -43,7 +43,7 @@ class ActorsController < ApplicationController
     end
 
     def destroy
-        @actor.delete
+        @actor.destroy
         redirect_to actors_path
     end
     

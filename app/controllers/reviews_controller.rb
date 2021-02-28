@@ -34,7 +34,7 @@ class ReviewsController < ApplicationController
 
     def destroy
         @review = Review.find(params[:id])
-        @review.delete
+        @review.destroy
         redirect_to tv_show_path(@review.tv_show)
     end
 

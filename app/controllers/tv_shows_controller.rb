@@ -39,7 +39,7 @@ class TvShowsController < ApplicationController
     end
 
     def destroy
-        @show.delete
+        @show.destroy
         redirect_to tv_shows_path
     end
     

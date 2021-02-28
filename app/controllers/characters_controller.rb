@@ -53,7 +53,7 @@ class CharactersController < ApplicationController
     end
 
     def destroy
-        @character.delete
+        @character.destroy
         redirect_to user_path(current_user)
     end
     

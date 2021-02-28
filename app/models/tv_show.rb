@@ -1,6 +1,6 @@
 class TvShow < ApplicationRecord
-    has_many :reviews
-    has_many :characters
+    has_many :reviews, :dependent => :destroy
+    has_many :characters, :dependent => :destroy
     has_many :actors, through: :characters
     belongs_to :creator, class_name: "User" 
     belongs_to :editor, class_name: "User"
