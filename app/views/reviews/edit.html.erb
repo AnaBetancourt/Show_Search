@@ -1,3 +1,5 @@
 <h1>Edit Review</h1>
 <hr>
-<%= render 'form' %>
+<%= render 'form' %><br>
+<strong>To delete your review, please click the button below</strong><br>
+<%= button_to "Delete", review_path(@review), :method => :delete %><br><br>

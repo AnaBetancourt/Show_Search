@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   resources :tv_shows do
     resources :actors, only: [:index]
     resources :characters, only: [:index, :new, :create]
+    resources :reviews, only: [:new, :create]
   end
-  resources :reviews, except: [:index, :show]
+  resources :reviews, except: [:index, :show, :new]
 
   get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
   get '/login', to: 'sessions#new'

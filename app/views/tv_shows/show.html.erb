@@ -12,11 +12,19 @@ Created by: <%= @show.creator.name %> on <%= @show.date_readable(@show.created_a
 <p><%= @show.synopsis %></p>
 <br>
 <br>
-<h3><%= link_to "See #{@show.name}'s characters", tv_show_characters_path(@show) %></h3>
-<h3><%= link_to "Create a new character for #{@show.name}", new_tv_show_character_path(@show) %></h3>
-<h3><%= link_to "See #{@show.name}'s  actors", tv_show_actors_path(@show) %></h3>
+<h4><%= link_to "See #{@show.name}'s characters", tv_show_characters_path(@show) %></h4>
+<h4><%= link_to "Create a new character for #{@show.name}", new_tv_show_character_path(@show) %></h4>
+<h4><%= link_to "See #{@show.name}'s  actors", tv_show_actors_path(@show) %></h4>
 <br>
 <br>
+<h3>Reviews:</h3>
+<ul><% @show.reviews.each do |review| %>
+    <li><%= review.body %> - <%= review.user.name %>
+    <% if current_user == review.user %>
+        <%= link_to "(edit review)", edit_review_path(review) %>
+    <% end %></li><br>
+<% end %></ul>
+<h4><%= link_to "Leave a Review", new_tv_show_review_path(@show) %></h4>
 <br>
 <%= link_to "Edit Show", edit_tv_show_path(@show) %>
 <br>
