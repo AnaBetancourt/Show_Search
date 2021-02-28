@@ -10,22 +10,34 @@ class Character < ApplicationRecord
     validates :name, uniqueness: true
 
     def actor_attributes=(attr)
-        if Actor.find_by(name: attr[:name])
-            binding.pry
-            a = Actor.find_by(name: attr[:name])
+        cap_name = []
+        attr[:name].split(" ").map do |i|
+            cap_name << i.capitalize
+        end
+        
+        if Actor.find_by(name: cap_name.join(" "))
+            a = Actor.find_by(name: cap_name.join(" "))
             self.actor = a
         else
-            # binding.pry
+            a = Actor.create(attr)
+            a.editor_id = attr[:creator_id]
+            a.characters << self
         end
     end
 
     def tv_show_attributes=(attr)
-        if !!TvShow.find_by(name: attr[:name])
-            s = TvShow.find_by(name: attr[:name])
+        cap_name = []
+        attr[:name].split(" ").map do |i|
+            cap_name << i.capitalize
+        end
+        
+        if !!TvShow.find_by(name: cap_name.join(" "))
+            s = TvShow.find_by(name: cap_name.join(" "))
             self.tv_show = s
         else
-            show = TvShow.create(attr)
-            binding.pry
+            s = TvShow.create(attr)
+            s.editor_id = attr[:creator_id]
+            s.characters << self
         end
     end
     

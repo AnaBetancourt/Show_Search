@@ -11,16 +11,18 @@
     <%= f.label :actor, "||Played By||" %>
     <br>
     <%= f.fields_for :actor do |a| %>
+        <%= a.hidden_field :creator_id %>
         <%= a.label :name, "Actor Name:" %>
         <%= a.text_field :name %>
         <br>
         <%= a.label :age, "Actor Age:" %>
-        <%= a.text_field :age %>         
+        <%= a.text_field :age %>        
     <% end %>
     <br>
     <br>
     <%= f.label :tv_show, "||On Show||" %><br>
     <%= f.fields_for :tv_show do |s| %>
+        <%= s.hidden_field :creator_id, value: current_user.id %>
         <%= s.label :name, "Show Name:" %>
         <%= s.text_field :name %>
         <br>

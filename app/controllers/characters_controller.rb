@@ -12,6 +12,9 @@ class CharactersController < ApplicationController
         @character.creator = current_user
         @character.editor = current_user
 
+        # character_params[:actor_attributes].merge!(:user_id => current_user.id)
+        # character_params[:tv_show_attributes].merge!(:user_id => current_user.id)
+
         if @character.save
             flash[:message] = "Character was successfully created."
             redirect_to character_path(@character)
@@ -40,13 +43,13 @@ class CharactersController < ApplicationController
 
     def destroy
         @character.delete
-        redirect_to characters_path
+        redirect_to user_path(current_user)
     end
     
     private
 
     def character_params
-        params.require(:character).permit(:name, :bio, actor_attributes: [:current, :name, :age], tv_show_attributes: [:current, :name, :synopsis, :start_date, :currently_airing, :end_date, :network])
+        params.require(:character).permit(:name, :bio, actor_attributes: [:creator_id, :name, :age], tv_show_attributes: [:creator_id, :name, :synopsis, :start_date, :currently_airing, :end_date, :network])
     end
 
     def set_character
