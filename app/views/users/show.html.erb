@@ -13,6 +13,11 @@
     <p><%= link_to actor.name, actor_path(actor) %></p>
 <% end %>
 <br>
+<h2>Characters Created (<%= @user.created_characters.length %>)</h2>
+<% @user.created_characters.each do |character| %>
+    <p><%= link_to character.name, character_path(character) %></p>
+<% end %>
+<br>
 <br>
 <br>
 <%= link_to "Edit Information", edit_user_path(@user) %>

@@ -21,7 +21,7 @@ class Character < ApplicationRecord
         else
             a = Actor.create(attr)
             a.editor_id = attr[:creator_id]
-            a.characters << self
+            self.actor = a
         end
     end
 
@@ -37,7 +37,7 @@ class Character < ApplicationRecord
         else
             s = TvShow.create(attr)
             s.editor_id = attr[:creator_id]
-            s.characters << self
+            s.tv_show = s
         end
     end
     
