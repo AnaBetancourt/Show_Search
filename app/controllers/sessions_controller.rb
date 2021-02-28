@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
         user = User.find_by(email: params[:email])
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id
-            redirect_to user_path(user)
+            redirect_to homepage_path(user)
         else
             flash[:message] = "Invalid email or password. Please try again."
             redirect_to login_path
@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
 
         if user.valid?
             session[:user_id] = user.id
-            redirect_to user_path(user)
+            redirect_to homepage_path(user)
         else
             flash[:message] = user.errors.full_messages.join("")
             redirect_to root_path

@@ -44,7 +44,7 @@ class CharactersController < ApplicationController
 
     def destroy
         @character.delete
-        redirect_to user_path(current_user)
+        redirect_to homepage_path(current_user)
     end
     
     private

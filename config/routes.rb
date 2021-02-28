@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   root 'application#home'
   resources :actors do
-    resources :tv_shows, only: []
-    resources :characters, only: []
+    resources :tv_shows
+    resources :characters
     # characters and tv shows
   end
   resources :characters
@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   resources :tv_shows do
     # actors and characters
   end
-  resources :users, except: [:index, :destroy]
+  resources :users, except: [:index, :destroy, :show]
+  get '/homepage', to: 'users#show'
 
   get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
   get '/login', to: 'sessions#new'

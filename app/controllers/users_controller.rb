@@ -12,7 +12,7 @@ class UsersController < ApplicationController
         if @user.save
             session[:user_id] = @user.id
             flash[:message] = "User was successfully created."
-            redirect_to user_path(@user)
+            redirect_to homepage_path(@user)
         else
             render :new
         end
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     def update
         if @user.update(user_params)
             flash[:message] = "User was successfully updated."
-            redirect_to user_path(@user)
+            redirect_to homepage_path(@user)
         else
             render :edit
         end
