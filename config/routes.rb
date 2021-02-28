@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   root 'application#home'
-  resources :users, except: [:index, :destroy]
-  # get '/homepage', to: 'users#show'
+  get '/signup', to: 'users#new'
+  post '/signup', to: 'users#create'
+  get '/users/:id', to: 'users#show', as: 'user'
   resources :actors
   resources :characters
   resources :tv_shows do
