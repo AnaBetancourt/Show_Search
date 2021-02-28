@@ -1,5 +1,9 @@
 class CharactersController < ApplicationController
-    before_action :set_character, except: [:new, :create]
+    before_action :set_character, except: [:index, :new, :create]
+
+    def index
+        @characters = Character.all
+    end
 
     def new
         @character = Character.new
