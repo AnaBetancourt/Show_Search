@@ -1,4 +1,8 @@
-<h1>TV Shows</h1>
+<% if @actor %>
+    <h1><%= @actor.name %>'s Shows</h1>
+<% else %>
+    <h1>TV Shows</h1>
+<% end %>
 <hr>
 <ul><% @shows.each do |show| %>
     <li><%= link_to show.name, tv_show_path(show) %></li>

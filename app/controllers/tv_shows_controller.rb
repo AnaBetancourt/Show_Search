@@ -2,7 +2,11 @@ class TvShowsController < ApplicationController
     before_action :set_show, except: [:index, :new, :create]
     
     def index
-        @shows = TvShow.all
+        if params[:actor_id] && @actor =  Actor.find_by_id(params[:actor_id])
+            @shows = @actor.tv_shows.alphabetical
+        else
+            @shows = TvShow.all
+        end
     end
 
     def new

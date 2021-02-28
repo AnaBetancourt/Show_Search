@@ -13,8 +13,8 @@ class TvShow < ApplicationRecord
         date.strftime("%Y-%m-%d")
     end
 
-    # def self.alphabetical
-    #     self.order(name: :asc)
-    # end
+    def self.alphabetical
+        self.order(name: :asc)
+    end
 
 end
