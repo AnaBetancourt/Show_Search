@@ -14,4 +14,10 @@ module ActorsHelper
         end
     end
 
+    def display_delete(actor)
+        if actor.creator == current_user
+            button_to "Delete Actor", actor_path(@actor), :method => :delete
+        end
+    end
+
 end

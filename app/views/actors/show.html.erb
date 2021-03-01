@@ -1,16 +1,20 @@
 <h1><%= @actor.name %></h1>
-Created by: <%= @actor.creator.name %> on <%= @actor.date_readable(@actor.created_at) %> || <%= @actor.editor.name %> on <%= @actor.date_readable(@actor.updated_at) %>
+Created by: <%= @actor.creator.name %> on <%= @actor.date_readable(@actor.created_at) %> || Last edited by: <%= @actor.editor.name %> on <%= @actor.date_readable(@actor.updated_at) %>
 <hr>
 <h2><%= @actor.age %> years old</h2>
 <br>
 <h3>Roles:</h3>
+<% if @actor.characters.length > 0 %>
 <ul><% @actor.characters.each do |character| %>
     <li><%= link_to character.name, character_path(character) %> on <%= link_to character.tv_show.name, tv_show_path(character.tv_show) %></li>
 <% end %></ul>
+<% else %>
+    This actor currently does not have any roles created. You may <%= link_to "add one", new_character_path %> if you'd like.
+<% end %>
 <br>
 <br>
 <br>
 <%= link_to "Edit Actor", edit_actor_path(@actor) %>
 <br>
 <br>
-<%= button_to "Delete Actor", actor_path(@actor), :method => :delete %>
+<%= display_delete(@actor) %>
