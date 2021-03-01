@@ -2,10 +2,10 @@
 <hr>
 <%= form_with(url: '/login') do |f| %>
   <%= f.label :email %>
-  <%= f.text_field :email %>
-  <br>
+  <%= f.text_field :email %><br>
+  
   <%= f.label :password %>
-  <%= f.password_field :password %>
-  <br>
+  <%= f.password_field :password %><br>
+  
   <%= f.submit "Log In" %>
 <% end %>
