@@ -1,4 +1,4 @@
-<%= display_header(@show) %>
+<%= display_header_actors(@show) %>
 <hr>
 <ul><% @actors.each do |actor| %>
     <li><%= link_to actor.name, actor_path(actor) %></li>

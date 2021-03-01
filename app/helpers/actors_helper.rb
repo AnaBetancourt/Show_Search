@@ -1,6 +1,6 @@
 module ActorsHelper
 
-    def display_header(show)
+    def display_header_actors(show)
         if show
             tag.h1("#{show.name}'s Actors")
         else

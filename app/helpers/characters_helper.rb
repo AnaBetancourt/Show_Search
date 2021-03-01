@@ -8,7 +8,7 @@ module CharactersHelper
         end
     end
 
-    def display_header(show)
+    def display_header_characters(show)
         if show
             tag.h1("#{show.name}'s Characters")
         else
