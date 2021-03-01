@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+    before_action :creator_match, only: [:edit, :destroy]
  
     def new
         @show =  TvShow.find_by_id(params[:tv_show_id])
@@ -18,11 +19,7 @@ class ReviewsController < ApplicationController
     end
 
     def edit
-        if !creator_of_resource(@review)
-            redirect_to tv_show_path(@review.tv_show)
-        else
-            @review = Review.find(params[:id])
-        end
+        @review = Review.find(params[:id])
     end
 
     def update
@@ -37,19 +34,21 @@ class ReviewsController < ApplicationController
     end
 
     def destroy
-        if @review.creator != current_user
-            redirect_to tv_show_path(@review.tv_show)
-        else
-            @review = Review.find(params[:id])
-            @review.destroy
-            redirect_to tv_show_path(@review.tv_show)
-        end
+        @review = Review.find(params[:id])
+        @review.destroy
+        redirect_to tv_show_path(@review.tv_show)
     end
 
     private
 
     def review_params
         params.require(:review).permit(:body, :tv_show_id)
+    end
+
+    def creator_match
+        if @review.creator != current_user
+            redirect_to tv_show_path(@review.tv_show)
+        end
     end
     
 end

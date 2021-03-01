@@ -1,5 +1,6 @@
 class TvShowsController < ApplicationController
     before_action :set_show, except: [:index, :new, :create, :reviewed]
+    before_action :creator_match, only: [:destroy]
     
     def index
         @shows = TvShow.all
@@ -42,12 +43,8 @@ class TvShowsController < ApplicationController
     end
 
     def destroy
-        if @show.creator != current_user
-            redirect_to tv_show_path(@show)
-        else
-            @show.destroy
-            redirect_to tv_shows_path
-        end
+        @show.destroy
+        redirect_to tv_shows_path
     end
     
     private
@@ -58,6 +55,12 @@ class TvShowsController < ApplicationController
 
     def set_show
         @show = TvShow.find(params[:id])
+    end
+
+    def creator_match
+        if @show.creator != current_user
+            redirect_to tv_show_path(@show)
+        end
     end
 
     

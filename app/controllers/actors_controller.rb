@@ -1,5 +1,6 @@
 class ActorsController < ApplicationController
     before_action :set_actor, except: [:index, :new, :create]
+    before_action :creator_match, only: [:destroy]
 
     def index
         if params[:tv_show_id] && @show =  TvShow.find_by_id(params[:tv_show_id])
@@ -43,13 +44,9 @@ class ActorsController < ApplicationController
     end
 
     def destroy
-        if @actor.creator != current_user
-            redirect_to actor_path(@actor)
-        else
             @actor.destroy
             deletion_success("Actor")
             redirect_to actors_path
-        end
     end
     
     private
@@ -60,6 +57,12 @@ class ActorsController < ApplicationController
 
     def set_actor
         @actor = Actor.find(params[:id])
-    end                             
+    end   
+    
+    def creator_match
+        if @actor.creator != current_user
+            redirect_to actor_path(@actor)
+        end
+    end
 
 end
