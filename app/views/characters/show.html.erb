@@ -1,15 +1,13 @@
 <h1><%= @character.name %></h1>
 Created by: <%= @character.creator.name %> on <%= @character.date_readable(@character.created_at) %> || Last Edited by: <%= @character.editor.name %> on <%= @character.date_readable(@character.updated_at) %>
 <hr>
-<strong>Played by:</strong> <%= link_to @character.actor.name, actor_path(@character.actor) %></h3>
-<br>
+<strong>Played by:</strong> <%= link_to @character.actor.name, actor_path(@character.actor) %></h3><br>
+
 <strong>On Show:</strong> <%= link_to @character.tv_show.name, tv_show_path(@character.tv_show) %>
+
 <h3>Bio:</h3>
-<p><%= @character.bio %></p>
-<br>
-<br>
-<br>
-<%= link_to "Edit Character", edit_character_path(@character) %>
-<br>
-<br>
+<p><%= @character.bio %></p><br><br><br>
+
+<%= link_to "Edit Character", edit_character_path(@character) %><br><br>
+
 <%= display_delete(@character) %>
