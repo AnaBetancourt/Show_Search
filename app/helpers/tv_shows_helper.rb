@@ -30,4 +30,12 @@ module TvShowsHelper
         end
     end
 
+    def populated_end_date(show, f)
+        if show.end_date
+            f.text_field :end_date, value: show.dateform(show.end_date)
+        else
+            f.text_field :end_date
+        end
+    end
+
 end

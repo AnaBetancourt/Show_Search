@@ -13,7 +13,7 @@
     <%= f.check_box :currently_airing %><br>
     
     <%= f.label :end_date, "End Date (if not currently airing): " %>
-    <%= f.text_field :end_date, value: @show.dateform(@show.end_date) %><br>
+    <%= populated_end_date(@show, f)%><br>
 
     <%= f.label :network, "Network: " %>
     <%= f.text_field :network %><br>
