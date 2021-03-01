@@ -9,7 +9,6 @@ class Character < ApplicationRecord
 
     def actor_attributes=(attr)
         if !attr[:name].blank?
-            binding.pry
             if Actor.find_by(name: capitalize_name(attr[:name]))
                 a = Actor.find_by(name: capitalize_name(attr[:name]))
                 self.actor = a
@@ -23,13 +22,8 @@ class Character < ApplicationRecord
 
     def tv_show_attributes=(attr)
         if !attr[:name].blank?
-            cap_name = []
-            attr[:name].split(" ").map do |i|
-                cap_name << i.capitalize
-            end
-            
-            if !!TvShow.find_by(name: cap_name.join(" "))
-                s = TvShow.find_by(name: cap_name.join(" "))
+            if !!TvShow.find_by(name: capitalize_name(attr[:name]))
+                s = TvShow.find_by(name: capitalize_name(attr[:name]))
                 self.tv_show = s
             else
                 s = TvShow.create(attr)

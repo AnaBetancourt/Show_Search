@@ -21,7 +21,7 @@ class CharactersController < ApplicationController
     end
 
     def create
-        @character = current_user.characters.build(character_params)
+        @character = current_user.created_characters.build(character_params)
         @character.editor = current_user
 
         if @character.save
