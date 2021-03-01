@@ -14,23 +14,26 @@
     <% if logged_in? %>
       <%= link_to "Home", user_path(current_user) %> |
       <%= link_to "TV Shows", tv_shows_path %> |
-      <%= link_to "Actors", actors_path %>
+      <%= link_to "Actors", actors_path %> |
+      <%= link_to "Characters", characters_path %>
     <% else %>
       <%= link_to "Home", root_path %>
-    <% end %>
-    <br>
-    <br>
+    <% end %><br><br>
+
     <% if flash[:notice] %>
       <div class="field_with_errors"><%= flash[:notice] %></div>
     <% end %>
+
     <% if flash[:message] %>
       <div class="flash_message"><%= flash[:message] %></div>
     <% end %>
 
     <%= yield %>
+
     <% if logged_in? %>
       <hr>
       <%= button_to "Log Out", logout_path, :method => :delete %>
     <% end %>
+    
   </body>
 </html>
