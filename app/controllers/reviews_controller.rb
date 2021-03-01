@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+    before_action :set_review, except: [:index, :new, :create]
     before_action :creator_match, only: [:edit, :destroy]
  
     def new
@@ -45,8 +46,12 @@ class ReviewsController < ApplicationController
         params.require(:review).permit(:body, :tv_show_id)
     end
 
+    def set_review
+        @review = Review.find(params[:id])
+    end  
+
     def creator_match
-        if @review.creator != current_user
+        if @review.user != current_user
             redirect_to tv_show_path(@review.tv_show)
         end
     end
