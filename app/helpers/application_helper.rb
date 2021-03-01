@@ -12,12 +12,4 @@ module ApplicationHelper
         flash[:message] = "#{model} was successfully deleted."
     end
 
-    def capitalize_name(name)
-        cap_name = []
-        name.split(" ").each do |i|
-            cap_name << i.capitalize
-        end
-        cap_name.join(" ")
-    end 
-
 end

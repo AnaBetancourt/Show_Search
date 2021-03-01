@@ -7,12 +7,7 @@ class TvShow < ApplicationRecord
 
     validates :name, :synopsis, :start_date, presence: :true
     validates :name, uniqueness: :true
-
-    def name=(name)
-        capitalize_name(name)
-    end
     
-
     def dateform(date)
         date.strftime("%Y-%m-%d")
     end
