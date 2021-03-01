@@ -4,4 +4,4 @@
     <li><%= link_to character.name, character_path(character) %></li>
 <% end %></ul><br>
 
-<%= link_to "Create a new character here", new_character_path %>
+<%= display_add_character(@show) %>

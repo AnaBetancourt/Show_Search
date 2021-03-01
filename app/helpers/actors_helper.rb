@@ -8,7 +8,7 @@ module ActorsHelper
         end
     end
 
-    def display_add_character(show)
+    def display_add_actor(show)
         if !show
             link_to "Create a new actor here", new_actor_path  
         end

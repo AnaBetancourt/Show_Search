@@ -3,6 +3,6 @@
 <hr>
 <ul><% @shows.each do |show| %>
     <li><%= link_to show.name, tv_show_path(show) %></li>
-<% end %></ul>
-<br>
+<% end %></ul><br>
+
 <%= link_to "Create a new show here", new_tv_show_path %>

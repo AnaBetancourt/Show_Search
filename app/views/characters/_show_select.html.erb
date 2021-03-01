@@ -4,6 +4,7 @@
 
 <%= f.fields_for :tv_show do |s| %>
     <%= s.hidden_field :creator_id, value: current_user.id %>
+    <h5>Please format start and end dates as such: YYYY-MM-DD</h5>
 
     <%= s.label :name, "Show Name:" %>
     <%= s.text_field :name %><br>
