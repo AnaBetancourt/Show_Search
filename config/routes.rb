@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/tv_shows/most_reviewed', to: "tv_shows#reviewed"
 
-  resources :users, only: [:edit, :show]
+  resources :users, only: [:edit, :show, :update]
   resources :actors
   resources :characters
   resources :reviews, except: [:index, :show, :new]
