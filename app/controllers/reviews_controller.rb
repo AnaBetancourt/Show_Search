@@ -28,7 +28,7 @@ class ReviewsController < ApplicationController
 
         if @review.update(review_params)
             flash[:message] = "Review was successfully edited."
-            redirect_to review_path(@review)
+            redirect_to tv_show_path(@review.tv_show)
         else
             render :edit
         end
