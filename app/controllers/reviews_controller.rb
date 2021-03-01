@@ -37,7 +37,7 @@ class ReviewsController < ApplicationController
     end
 
     def destroy
-        if !creator_of_resource(@review)
+        if @review.creator != current_user
             redirect_to tv_show_path(@review.tv_show)
         else
             @review = Review.find(params[:id])

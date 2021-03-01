@@ -53,7 +53,7 @@ class CharactersController < ApplicationController
     end
 
     def destroy
-        if !creator_of_resource(@character)
+        if @character.creator != current_user
             redirect_to character_path(@character)
         else
             @character.destroy

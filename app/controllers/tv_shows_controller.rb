@@ -42,8 +42,12 @@ class TvShowsController < ApplicationController
     end
 
     def destroy
-        @show.destroy
-        redirect_to tv_shows_path
+        if @show.creator != current_user
+            redirect_to tv_show_path(@show)
+        else
+            @show.destroy
+            redirect_to tv_shows_path
+        end
     end
     
     private

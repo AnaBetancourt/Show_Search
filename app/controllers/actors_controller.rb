@@ -43,7 +43,7 @@ class ActorsController < ApplicationController
     end
 
     def destroy
-        if !creator_of_resource(@actor)
+        if @actor.creator != current_user
             redirect_to actor_path(@actor)
         else
             @actor.destroy
