@@ -6,18 +6,16 @@
 <h2>Shows Created (<%= @user.created_tv_shows.length %>)</h2>
 <% @user.created_tv_shows.each do |show| %>
     <p><%= link_to show.name, tv_show_path(show) %></p>
-<% end %>
-<br>
+<% end %><br>
+
 <h2>Actors Created (<%= @user.created_actors.length %>)</h2>
 <% @user.created_actors.each do |actor| %>
     <p><%= link_to actor.name, actor_path(actor) %></p>
-<% end %>
-<br>
+<% end %><br>
+
 <h2>Characters Created (<%= @user.created_characters.length %>)</h2>
 <% @user.created_characters.each do |character| %>
     <p><%= link_to character.name, character_path(character) %></p>
-<% end %>
-<br>
-<br>
-<br>
+<% end %><br>
+
 <%= link_to "Edit Information", edit_user_path(@user) %>

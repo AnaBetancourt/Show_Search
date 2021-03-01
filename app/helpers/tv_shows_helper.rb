@@ -18,7 +18,7 @@ module TvShowsHelper
         end
     end
 
-    def display_delete(show)
+    def display_delete_show(show)
         if show.creator == current_user
             button_to "Delete show", tv_show_path(show), :method => :delete
         end

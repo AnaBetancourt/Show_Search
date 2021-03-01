@@ -16,7 +16,7 @@ module CharactersHelper
         end
     end
 
-    def display_delete(character)
+    def display_delete_character(character)
         if character.creator == current_user
             button_to "Delete Character", character_path(@character), :method => :delete
         end

@@ -1,10 +1,9 @@
 
-<br><strong>Select or create the show that this character is in</strong><br>
+<br><strong>Select or create the show that this character is in:</strong><br>
 <%= f.collection_select :tv_show_id, TvShow.all, :id, :name, prompt: true %><br><br>
 
 <%= f.fields_for :tv_show do |s| %>
     <%= s.hidden_field :creator_id, value: current_user.id %>
-    <h5>Please format start and end dates as such: YYYY-MM-DD</h5>
 
     <%= s.label :name, "Show Name:" %>
     <%= s.text_field :name %><br>
@@ -12,6 +11,7 @@
     <%= s.label :synopsis, "Show Synopsis:" %>
     <%= s.text_area :synopsis %><br>
         
+    <strong>Please format start and end dates as (YYYY-MM-DD)</strong><br>
     <%= s.label :start_date, "Show Start Date:" %>
     <%= s.text_field :start_date %><br>
         

@@ -70,7 +70,7 @@ class CharactersController < ApplicationController
     end
 
     def creator_match
-        if @actor.creator != current_user
+        if @character.creator != current_user
             redirect_to actor_path(@actor)
         end
     end

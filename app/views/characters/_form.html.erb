@@ -6,7 +6,7 @@
     <%= f.label :bio, "Bio: " %><br>
     <%= f.text_area :bio %><br><br>
     
-    <strong>Select or create the actor that plays this character</strong><br>
+    <strong>Select or create the actor that plays this character:</strong><br>
     <%= f.collection_select :actor_id, Actor.all, :id, :name, prompt: true %><br><br>
     
     <%= f.fields_for :actor do |a| %>
