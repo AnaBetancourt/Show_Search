@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   get '/tv_shows/most_reviewed', to: "tv_shows#reviewed"
+  get '/tv_shows/currently_airing', to: "tv_shows#currently_airing"
 
   resources :users, only: [:edit, :show, :update]
   resources :actors

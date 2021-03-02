@@ -16,4 +16,8 @@ class TvShow < ApplicationRecord
         self.order(reviews: :asc)
     end
 
+    def self.currently_airing
+        where(currently_airing: true)
+    end
+
 end

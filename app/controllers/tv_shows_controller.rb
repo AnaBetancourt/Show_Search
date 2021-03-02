@@ -1,5 +1,5 @@
 class TvShowsController < ApplicationController
-    before_action :set_show, except: [:index, :new, :create, :reviewed]
+    before_action :set_show, except: [:index, :new, :create, :reviewed, :currently_airing]
     before_action :creator_match, only: [:destroy]
     
     def index
@@ -27,6 +27,10 @@ class TvShowsController < ApplicationController
     end
 
     def show
+    end
+
+    def currently_airing
+        @shows = TvShow.currently_airing
     end
 
     def edit
